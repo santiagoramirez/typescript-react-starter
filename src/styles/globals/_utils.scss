@@ -1,0 +1,17 @@
+.container {
+  padding: 0 30px;
+}
+
+.container--sm {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.container--lg {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}

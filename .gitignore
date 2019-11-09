@@ -1,0 +1,12 @@
+# OS Files
+.DS_Store
+.Trashes
+[Tt]humbs.db
+.Trashes
+
+# VS Code
+.history
+Close
+
+# NPM
+node_modules

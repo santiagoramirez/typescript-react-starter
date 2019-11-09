@@ -1,0 +1,8 @@
+extends: tslint:recommended
+rulesDirectory:
+  src
+rules:
+  max-line-length: false
+exclude:
+  dist
+  node_modules
