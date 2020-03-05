@@ -2,12 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import '@styles/base.scss';
-
 import store from '@app/store';
 
-import Footer from '@components/Footer';
-import Header from '@components/Header';
+import Footer from '@app/components/Footer';
+import Header from '@app/components/Header';
 
 class App extends React.Component {
   public render() {

@@ -15,10 +15,15 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.get('/', (req, res) => {
+  res.send('hey!');
+});
+
 app.use((req, res, next) => {
   next(createError(404));
 });
 
 app.listen({ port: process.env.PORT }, () => {
+  // tslint:disable-next-line:no-console
   console.log(`Server ready at http://localhost:${process.env.PORT}`);
 });

@@ -72,6 +72,9 @@
         c.use(i.default.static(f.default.join(e, './public'))),
         c.use(i.default.urlencoded({ extended: !1 })),
         c.use(o.default()),
+        c.get('/', (e, t) => {
+          t.send('hey!');
+        }),
         c.use((e, t, r) => {
           r(l.default(404));
         }),
