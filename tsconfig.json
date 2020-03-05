@@ -8,16 +8,10 @@
     "jsx": "react",
     "baseUrl": "./src",
     "paths": {
-      "@app/*": ["*"],
-      "@components/*": ["components/*"],
-      "@services/*": ["services/*"],
-      "@store": ["store"],
-      "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"],
-      "@types": ["types"],
-      "@utils/*": ["utils/*"]
+      "@app/*": ["packages/app/src/*"],
+      "@server/*": ["packages/server/src/*"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./packages/server/src/**/*"],
   "exclude": [".history", "dist", "node_modules"]
 }

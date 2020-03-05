@@ -10,3 +10,6 @@ Close
 
 # NPM
 node_modules
+
+# Environment
+.env
