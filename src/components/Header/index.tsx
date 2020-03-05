@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import "./Header.scss";
+import './index.scss';
 
 class Header extends Component {
-
   public render() {
     return (
       <div className="header | align-items-center d-flex">
@@ -17,7 +16,6 @@ class Header extends Component {
       </div>
     );
   }
-
 }
 
 export default Header;

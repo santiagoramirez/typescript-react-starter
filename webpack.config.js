@@ -1,7 +1,7 @@
 const path = require("path");
 
 const CleanObsoleteChunks = require("webpack-clean-obsolete-chunks");
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
@@ -11,7 +11,7 @@ const sassResourcesLoaderOptions = {
     path.resolve(__dirname, "./src/styles/_variables.scss"),
     path.resolve(__dirname, "./src/styles/_extends.scss")
   ]
-}
+};
 
 const config = {
   entry: {
@@ -31,28 +31,31 @@ const config = {
           test: /node_modules/,
           name: "vendors",
           chunks: "all"
-        },
+        }
       }
     }
   },
   module: {
-    rules: [{
-      test: /\.(ts|tsx)$/,
-      exclude: /node_modules/,
-      use: [
-        { loader: "ts-loader" },
-        { loader: "tslint-loader" }
-      ]
-    }, {
-      test: /\.scss$/,
-      use: [
-        { loader: MiniCssExtractPlugin.loader },
-        { loader: "css-loader" },
-        { loader: "postcss-loader" },
-        { loader: "sass-loader" },
-        { loader: "sass-resources-loader", options: sassResourcesLoaderOptions }
-      ]
-    }]
+    rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [{ loader: "ts-loader" }, { loader: "tslint-loader" }]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" },
+          {
+            loader: "sass-resources-loader",
+            options: sassResourcesLoaderOptions
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new ManifestPlugin(),
@@ -67,12 +70,10 @@ const config = {
   ],
   resolve: {
     extensions: [".js", ".ts", ".tsx", ".scss"],
-    plugins: [
-      new TsconfigPathsPlugin()
-    ]
+    plugins: [new TsconfigPathsPlugin()]
   },
   mode: process.env.NODE_ENV,
-  devtool: (process.env.NODE_ENV === "development") ? "inline-source-map" : false
-}
+  devtool: process.env.NODE_ENV === "development" ? "inline-source-map" : false
+};
 
 module.exports = config;

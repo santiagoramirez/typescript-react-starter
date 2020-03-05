@@ -1,13 +1,13 @@
-import assign from "lodash/assign";
+import assign from 'lodash/assign';
 
-import { ActionTypes } from "@actions/sample";
+import { ActionTypes } from '@app/store/actions/sample';
 
 interface IState {
   text: string;
 }
 
 const defaultState: IState = {
-  text: "",
+  text: ''
 };
 
 export default function(state: IState = defaultState, { type, payload }) {

@@ -1,20 +1,20 @@
 export enum ActionTypes {
-  SAMPLE_SET_TEXT = "SAMPLE_SET_TEXT",
+  SAMPLE_SET_TEXT = 'SAMPLE_SET_TEXT'
 }
 
 interface ISetTextAction {
   readonly type: ActionTypes.SAMPLE_SET_TEXT;
   readonly payload: {
-    text: string,
+    text: string;
   };
 }
 
 export const setText = (text: string): ISetTextAction => {
   return {
     payload: {
-      text,
+      text
     },
-    type: ActionTypes.SAMPLE_SET_TEXT,
+    type: ActionTypes.SAMPLE_SET_TEXT
   };
 };
 

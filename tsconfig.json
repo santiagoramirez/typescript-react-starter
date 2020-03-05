@@ -9,22 +9,15 @@
     "baseUrl": "./src",
     "paths": {
       "@app/*": ["*"],
-      "@actions/*": ["actions/*"],
       "@components/*": ["components/*"],
-      "@reducers/*": ["reducers/*"],
       "@services/*": ["services/*"],
       "@store": ["store"],
+      "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
       "@types": ["types"],
       "@utils/*": ["utils/*"]
     }
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    ".history",
-    "dist",
-    "node_modules",
-  ]
+  "include": ["./src/**/*"],
+  "exclude": [".history", "dist", "node_modules"]
 }
