@@ -4,10 +4,12 @@
   "author": "Santiago Ramirez <hey@santi.nyc>",
   "scripts": {
     "test": "jest",
-    "build": "NODE_ENV=production rm -rf 'dist' && webpack",
-    "build-dev": "NODE_ENV=development rm -rf 'dist' && webpack --watch",
+    "build": "NODE_ENV=production webpack",
+    "build:dev": "NODE_ENV=development webpack",
+    "build-web": "NODE_ENV=production webpack --config webpack.config.web.js",
+    "build-web:dev": "NODE_ENV=development webpack --config webpack.config.web.js",
     "start": "",
-    "start-dev": "NODE_ENV=development nodemon packages/server/dist/index.js -e js,json,ts,tsx",
+    "start:dev": "NODE_ENV=development nodemon server/dist/server.js -e js,json,ts,tsx",
     "lint": "pretty-quick --staged"
   },
   "dependencies": {
@@ -38,6 +40,7 @@
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "husky": "^4.2.3",
+    "ignore-loader": "^0.1.2",
     "jest": "^24.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",

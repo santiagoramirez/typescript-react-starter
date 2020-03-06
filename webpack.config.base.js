@@ -1,4 +1,5 @@
 const path = require('path');
+const merge = require('webpack-merge');
 
 const CleanObsoleteChunks = require('webpack-clean-obsolete-chunks');
 const Dotenv = require('dotenv-webpack');
@@ -6,52 +7,68 @@ const Manifest = require('webpack-manifest-plugin');
 const MiniCssExtract = require('mini-css-extract-plugin');
 const TsconfigPaths = require('tsconfig-paths-webpack-plugin');
 
-const APP_SRC = path.resolve(__dirname, './packages/app');
-
-const sassResourcesLoaderOptions = {
-  resources: [
-    path.resolve(APP_SRC, './styles/_variables.scss'),
-    path.resolve(APP_SRC, './styles/_extends.scss')
-  ]
-};
-
-const config = {
+const baseConfig = {
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: [{ loader: 'ts-loader' }, { loader: 'tslint-loader' }]
-      },
-      {
-        test: /\.(css|scss)$/,
-        use: [
-          { loader: MiniCssExtract.loader },
-          { loader: 'css-loader' },
-          { loader: 'postcss-loader' },
-          { loader: 'sass-loader' },
-          {
-            loader: 'sass-resources-loader',
-            options: sassResourcesLoaderOptions
-          }
-        ]
       }
     ]
   },
-  plugins: [
-    new Dotenv(),
-    new Manifest(),
-    new MiniCssExtract({
-      filename: 'dist/styles/[name].[contenthash].css'
-    }),
-    new CleanObsoleteChunks()
-  ],
+  plugins: [new Dotenv(), new MiniCssExtract()],
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.scss'],
     plugins: [new TsconfigPaths()]
   },
   mode: process.env.NODE_ENV == 'development' ? 'development' : 'production',
-  devtool: process.env.NODE_ENV == 'development' ? 'inline-source-map' : false
+  devtool: process.env.NODE_ENV == 'development' ? 'inline-source-map' : false,
+  watch: process.env.NODE_ENV == 'development' ? true : false
 };
 
-module.exports = config;
+const baseAppConfig = merge([
+  baseConfig,
+  {
+    optimization: {
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
+      }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(css|scss)$/,
+          use: [
+            { loader: MiniCssExtract.loader },
+            { loader: 'css-loader' },
+            { loader: 'postcss-loader' },
+            { loader: 'sass-loader' },
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: [
+                  path.resolve(__dirname, './app/styles/_variables.scss'),
+                  path.resolve(__dirname, './app/styles/_extends.scss')
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    plugins: [new Manifest(), new CleanObsoleteChunks()]
+  }
+]);
+
+module.exports = {
+  baseConfig,
+  baseAppConfig
+};

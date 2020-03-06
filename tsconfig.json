@@ -8,10 +8,9 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["packages/app/src/*"],
-      "@server/*": ["packages/server/src/*"]
+      "@app/*": ["app/*"],
+      "@server/*": ["server/src/*"]
     }
   },
-  "include": ["./packages/app/src/**/*", "./packages/server/src/**/*"],
-  "exclude": [".history", "dist", "node_modules"]
+  "include": ["./app/**/*", "./server/src/**/*"]
 }
