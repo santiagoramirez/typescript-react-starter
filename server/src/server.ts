@@ -1,17 +1,14 @@
 import 'babel-polyfill';
 
 import cookieParser from 'cookie-parser';
-// import dotenv from 'dotenv';
 import express, { Express } from 'express';
 import createError from 'http-errors';
 import path from 'path';
 
 const app: Express = express();
 
-// dotenv.config();
-
 app.use(express.json());
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.resolve(__dirname, './public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 

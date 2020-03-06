@@ -9,13 +9,14 @@
     "build-web": "NODE_ENV=production webpack --config webpack.config.web.js",
     "build-web:dev": "NODE_ENV=development webpack --config webpack.config.web.js",
     "start": "",
-    "start:dev": "NODE_ENV=development nodemon server/dist/server.js -e js,json,ts,tsx",
+    "start:dev": "NODE_ENV=development nodemon server/server.bundle.js -e js,json,ts,tsx",
     "lint": "pretty-quick --staged"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
+    "express-manifest": "^0.1.1",
     "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

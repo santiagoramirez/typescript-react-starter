@@ -23,7 +23,8 @@ const webServerConfig = merge([
       server: path.resolve(__dirname, './server/src/server.ts')
     },
     output: {
-      path: path.resolve(__dirname, './server/dist')
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, './server')
     },
     module: {
       rules: [
@@ -32,6 +33,9 @@ const webServerConfig = merge([
           use: [{ loader: 'ignore-loader' }]
         }
       ]
+    },
+    node: {
+      __dirname: false
     },
     target: 'node',
     externals: [nodeExternals()]
