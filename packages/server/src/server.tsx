@@ -5,9 +5,11 @@ import express, { Express } from 'express';
 import manifest from 'express-manifest-helpers';
 import createError from 'http-errors';
 import path from 'path';
-import React, { lazy } from 'react';
+import { lazy } from 'react';
+import { matchPath } from 'react-router-dom';
 
-import renderPage from '@server/utils/render-page';
+import appRoutes from '@app/routes';
+import renderPage from '@server/utils/render-page.tsx';
 
 const About = lazy(() => import('@server/views/pages/about'));
 const Home = lazy(() => import('@server/views/pages/home'));
@@ -27,12 +29,13 @@ app.use(
 
 app.use('/public', express.static(path.resolve(__dirname, './public')));
 
-app.get('/', (req, res) => {
-  res.send(renderPage(<Home />));
-});
-
-app.get('/about', (req, res) => {
-  res.send(renderPage(<About />));
+app.get('*', (req, res, next) => {
+  const activeRoute =
+    appRoutes.find((route) => matchPath(req.url, route)) || null;
+  if (activeRoute) {
+    res.send(renderPage(activeRoute.component));
+  }
+  next();
 });
 
 app.use((req, res, next) => {

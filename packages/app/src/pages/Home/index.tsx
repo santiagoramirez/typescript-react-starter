@@ -6,7 +6,7 @@ class Home extends Component {
     return (
       <>
         <Helmet>
-          <title>The Homepage</title>
+          <title>The App Homepage</title>
         </Helmet>
       </>
     );

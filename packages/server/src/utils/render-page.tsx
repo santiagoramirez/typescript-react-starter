@@ -2,7 +2,7 @@ import { assetPath } from 'express-manifest-helpers';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 
-export default function renderPage(component: JSX.Element) {
+export default function renderPage(component: any) {
   const helmet = Helmet.renderStatic();
 
   return `
@@ -13,7 +13,7 @@ export default function renderPage(component: JSX.Element) {
         ${helmet.meta.toString()}
       </head>
       <body>
-        ${renderToString(component)}
+        ${renderToString({<component />})}
         <script src=${assetPath('app.js')}></script>
       </body>
     </html>
