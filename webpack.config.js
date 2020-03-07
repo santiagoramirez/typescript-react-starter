@@ -1,3 +1,6 @@
-const [webAppConfig, webServerConfig] = require('./webpack.config.web');
+const [
+  webAppConfig,
+  webServerConfig
+] = require('./packages/server/webpack.config');
 
 module.exports = [webAppConfig, webServerConfig];

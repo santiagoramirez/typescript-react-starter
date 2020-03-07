@@ -8,10 +8,14 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["app/*"],
-      "@server/*": ["server/src/*"]
+      "@app/*": ["packages/app/src/*"],
+      "@server/*": ["packages/server/src/*"]
     }
   },
-  "typeRoots": ["./app", "./server/src"],
-  "include": ["./app/**/*", "./server/src/**/*"]
+  "typeRoots": ["./packages/app/src", "./packages/server/src"],
+  "include": [
+    "./packages/app/**/*",
+    "./packages/server/src/**/*",
+    "packages/server/app.web.tsx"
+  ]
 }

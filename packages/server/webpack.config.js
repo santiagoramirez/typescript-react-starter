@@ -2,16 +2,17 @@ const path = require('path');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 
-const { baseConfig, baseAppConfig } = require('./webpack.config.base');
+const baseConfig = require('@appname/root/webpack.config.base');
+const baseAppConfig = require('@appname/root/webpack.config.base.app');
 
 const webAppConfig = merge([
   baseAppConfig,
   {
     entry: {
-      app: path.resolve(__dirname, './app/app.web.tsx')
+      app: path.resolve(__dirname, './src/app.tsx')
     },
     output: {
-      path: path.resolve(__dirname, './server/public/build')
+      path: path.resolve(__dirname, './src/server/public/build')
     }
   }
 ]);
@@ -20,11 +21,11 @@ const webServerConfig = merge([
   baseConfig,
   {
     entry: {
-      server: path.resolve(__dirname, './server/src/server.tsx')
+      server: path.resolve(__dirname, './src/server.tsx')
     },
     output: {
       filename: '[name].js',
-      path: path.resolve(__dirname, './server/build')
+      path: path.resolve(__dirname, './src/server/build')
     },
     module: {
       rules: [
@@ -41,7 +42,5 @@ const webServerConfig = merge([
     externals: [nodeExternals()]
   }
 ]);
-
-console.log(webServerConfig);
 
 module.exports = [webAppConfig, webServerConfig];

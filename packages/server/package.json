@@ -1,0 +1,24 @@
+{
+  "name": "@appname/server",
+  "version": "1.0.0",
+  "author": "Santiago Ramirez <hey@santi.nyc>",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "build:dev": "NODE_ENV=development webpack",
+    "start": "NODE_ENV=production node server/build/server.js",
+    "start:dev": "NODE_ENV=development nodemon server/build/server.js -e js,json,ts,tsx"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.3",
+    "@types/http-errors": "^1.6.3",
+    "express-manifest-helpers": "^0.6.0",
+    "ignore-loader": "^0.1.2",
+    "nodemon": "^2.0.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
