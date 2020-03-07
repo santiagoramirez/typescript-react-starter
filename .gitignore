@@ -15,5 +15,5 @@ node_modules
 .env
 
 # App Specific
-server/dist
-server/public/dist
+server/build
+server/public/build

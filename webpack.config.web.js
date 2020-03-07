@@ -11,7 +11,7 @@ const webAppConfig = merge([
       app: path.resolve(__dirname, './app/app.web.tsx')
     },
     output: {
-      path: path.resolve(__dirname, './server/public/dist')
+      path: path.resolve(__dirname, './server/public/build')
     }
   }
 ]);
@@ -23,8 +23,8 @@ const webServerConfig = merge([
       server: path.resolve(__dirname, './server/src/server.tsx')
     },
     output: {
-      filename: '[name].bundle.js',
-      path: path.resolve(__dirname, './server')
+      filename: '[name].js',
+      path: path.resolve(__dirname, './server/build')
     },
     module: {
       rules: [

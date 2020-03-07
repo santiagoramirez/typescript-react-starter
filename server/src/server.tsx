@@ -19,8 +19,8 @@ app.use(cookieParser());
 
 app.use(
   manifest({
-    manifestPath: path.join(__dirname, 'public/dist/manifest.json'),
-    prependPath: '/public/dist/'
+    manifestPath: path.join(__dirname, './../public/build/manifest.json'),
+    prependPath: '/public/build/'
   })
 );
 

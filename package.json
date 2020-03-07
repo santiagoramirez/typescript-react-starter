@@ -9,7 +9,7 @@
     "build-web": "NODE_ENV=production webpack --config webpack.config.web.js",
     "build-web:dev": "NODE_ENV=development webpack --config webpack.config.web.js",
     "start": "",
-    "start:dev": "NODE_ENV=development nodemon server/server.bundle.js -e js,json,ts,tsx",
+    "start:dev": "NODE_ENV=development nodemon server/build/server.js -e js,json,ts,tsx",
     "lint": "pretty-quick --staged"
   },
   "dependencies": {
