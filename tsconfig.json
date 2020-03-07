@@ -12,5 +12,6 @@
       "@server/*": ["server/src/*"]
     }
   },
+  "typeRoots": ["./app", "./server/src"],
   "include": ["./app/**/*", "./server/src/**/*"]
 }

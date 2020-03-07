@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "rulesDirectory": ["app", "server/src"],
   "rules": { "member-access": true, "no-any": true, "no-unsafe-any": true }
 }

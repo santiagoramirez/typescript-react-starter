@@ -13,3 +13,7 @@ node_modules
 
 # Environment
 .env
+
+# App Specific
+server/dist
+server/public/dist

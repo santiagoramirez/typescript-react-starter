@@ -20,7 +20,7 @@ const webServerConfig = merge([
   baseConfig,
   {
     entry: {
-      server: path.resolve(__dirname, './server/src/server.ts')
+      server: path.resolve(__dirname, './server/src/server.tsx')
     },
     output: {
       filename: '[name].bundle.js',
@@ -41,5 +41,7 @@ const webServerConfig = merge([
     externals: [nodeExternals()]
   }
 ]);
+
+console.log(webServerConfig);
 
 module.exports = [webAppConfig, webServerConfig];

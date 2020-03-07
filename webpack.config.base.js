@@ -30,6 +30,10 @@ const baseConfig = {
 const baseAppConfig = merge([
   baseConfig,
   {
+    output: {
+      filename: '[name].[contenthash].js',
+      chunkFilename: '[name].[contenthash].chunk.js'
+    },
     optimization: {
       runtimeChunk: 'single',
       splitChunks: {
