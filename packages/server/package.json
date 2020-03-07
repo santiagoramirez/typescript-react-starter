@@ -1,5 +1,5 @@
 {
-  "name": "@appname/server",
+  "name": "@monorepo/server",
   "version": "1.0.0",
   "author": "Santiago Ramirez <hey@santi.nyc>",
   "scripts": {

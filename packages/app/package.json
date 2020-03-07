@@ -1,5 +1,5 @@
 {
-  "name": "@appname/app",
-  "version": "1.0.0",
+  "name": "@monorepo/app",
+  "version": "0.0.0",
   "author": "Santiago Ramirez <hey@santi.nyc>"
 }

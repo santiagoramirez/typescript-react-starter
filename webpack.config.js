@@ -1,6 +1,6 @@
 const [
   webAppConfig,
   webServerConfig
-] = require('./packages/server/webpack.config');
+] = require('@monorepo/server/webpack.config.js');
 
 module.exports = [webAppConfig, webServerConfig];

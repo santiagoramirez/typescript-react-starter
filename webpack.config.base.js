@@ -1,7 +1,24 @@
-const path = require('path');
+require('dotenv').config();
 
 const Dotenv = require('dotenv-webpack');
 const MiniCssExtract = require('mini-css-extract-plugin');
+
+let envConfig = {};
+
+switch (process.env.NODE_ENV) {
+  case 'development':
+    envConfig = {
+      mode: 'development',
+      devtool: 'inline-source-map',
+      watch: true
+    };
+    break;
+
+  case 'production': {
+    envConfig = { mode: 'production' };
+    break;
+  }
+}
 
 const config = {
   module: {
@@ -16,14 +33,11 @@ const config = {
   plugins: [new Dotenv(), new MiniCssExtract()],
   resolve: {
     alias: {
-      '@app': path.join(__dirname, './packages/app/src'),
-      '@server': path.join(__dirname, './packages/server/src')
+      '@app': '@monorepo/app',
+      '@server': '@monorepo/server'
     },
     extensions: ['.js', '.ts', '.tsx', '.scss']
-  },
-  mode: process.env.NODE_ENV == 'development' ? 'development' : 'production',
-  devtool: process.env.NODE_ENV == 'development' ? 'inline-source-map' : false,
-  watch: process.env.NODE_ENV == 'development' ? true : false
+  }
 };
 
-module.exports = config;
+module.exports = merge([config, envConfig]);
