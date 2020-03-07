@@ -12,7 +12,7 @@ const webAppConfig = merge([
       app: path.resolve(__dirname, './src/app.tsx')
     },
     output: {
-      path: path.resolve(__dirname, './src/server/public/build')
+      path: path.resolve(__dirname, './public/build')
     }
   }
 ]);
@@ -25,7 +25,7 @@ const webServerConfig = merge([
     },
     output: {
       filename: '[name].js',
-      path: path.resolve(__dirname, './src/server/build')
+      path: path.resolve(__dirname, './build')
     },
     module: {
       rules: [

@@ -5,8 +5,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "build:dev": "NODE_ENV=development webpack",
-    "start": "NODE_ENV=production node server/build/server.js",
-    "start:dev": "NODE_ENV=development nodemon server/build/server.js -e js,json,ts,tsx"
+    "start": "NODE_ENV=production node build/server.js",
+    "start:dev": "NODE_ENV=development nodemon build/server.js -e js,json,ts,tsx"
   },
   "dependencies": {
     "cookie-parser": "^1.4.4",

@@ -5,8 +5,10 @@
   "scripts": {
     "test": "jest",
     "bootstrap": "lerna bootstrap --hoist",
-    "build": "NODE_ENV=production webpack",
-    "build:dev": "NODE_ENV=development webpack",
+    "server:build": "cd packages/server && npm run build",
+    "server:build:dev": "cd packages/server && npm run build:dev",
+    "server:start": "cd packages/server && npm run start",
+    "server:start:dev": "cd packages/server && npm run start:dev",
     "lint": "pretty-quick --staged"
   },
   "dependencies": {
@@ -48,7 +50,6 @@
     "sass-resources-loader": "^2.0.1",
     "ts-jest": "^24.1.0",
     "ts-loader": "^6.2.1",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-loader": "^3.5.4",

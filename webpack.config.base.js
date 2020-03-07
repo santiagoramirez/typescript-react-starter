@@ -1,6 +1,7 @@
+const path = require('path');
+
 const Dotenv = require('dotenv-webpack');
 const MiniCssExtract = require('mini-css-extract-plugin');
-const TsconfigPaths = require('tsconfig-paths-webpack-plugin');
 
 const config = {
   module: {
@@ -14,8 +15,11 @@ const config = {
   },
   plugins: [new Dotenv(), new MiniCssExtract()],
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.scss'],
-    plugins: [new TsconfigPaths()]
+    alias: {
+      '@app': path.join(__dirname, './packages/app/src'),
+      '@server': path.join(__dirname, './packages/server/src')
+    },
+    extensions: ['.js', '.ts', '.tsx', '.scss']
   },
   mode: process.env.NODE_ENV == 'development' ? 'development' : 'production',
   devtool: process.env.NODE_ENV == 'development' ? 'inline-source-map' : false,
