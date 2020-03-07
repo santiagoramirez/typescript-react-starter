@@ -9,6 +9,7 @@ import React, { lazy } from 'react';
 
 import renderPage from '@server/utils/render-page';
 
+const About = lazy(() => import('@server/views/pages/about'));
 const Home = lazy(() => import('@server/views/pages/home'));
 
 const app: Express = express();
@@ -28,6 +29,10 @@ app.use('/public', express.static(path.resolve(__dirname, './public')));
 
 app.get('/', (req, res) => {
   res.send(renderPage(<Home />));
+});
+
+app.get('/about', (req, res) => {
+  res.send(renderPage(<About />));
 });
 
 app.use((req, res, next) => {

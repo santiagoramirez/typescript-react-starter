@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 import DefaultLayout from '@server/views/layouts/default.layout';
 import Helmet from 'react-helmet';
 
-class Home extends Component {
+class About extends Component {
   public render() {
     return (
       <DefaultLayout>
         <Helmet>
-          <title>Homepage</title>
+          <title>About Page</title>
         </Helmet>
-        <span>This is a React server-side rendered homepage!</span>
+        <span>This is a React server-side rendered about page!</span>
       </DefaultLayout>
     );
   }
 }
 
-export default Home;
+export default About;
