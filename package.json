@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/core",
+  "name": "@monorepo",
   "version": "0.0.0",
   "author": "Santiago Ramirez <hey@santi.nyc>",
   "scripts": {
@@ -8,9 +8,7 @@
     "lint": "npx pretty-quick --staged"
   },
   "dependencies": {
-    "@monorepo/core": "./",
-    "@monorepo/app": "./packages/app",
-    "@monorepo/server": "./packages/server",
+    "@monorepo": "./",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.15",
     "react": "^16.11.0",
