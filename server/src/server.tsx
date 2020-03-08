@@ -8,14 +8,12 @@ import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
-import { matchPath } from 'react-router-dom';
+import { matchPath, StaticRouter } from 'react-router-dom';
 
 import appRoutes from '@app/routes';
 import pageRoutes from '@server/routes';
 
 import App from '@server/app';
-
-__dirname = path.join(__dirname, '../');
 
 const app: Express = express();
 
@@ -33,13 +31,18 @@ app.get('*', (req, res, next) => {
     return next();
   }
 
+  const helmet = Helmet.renderStatic();
+
   const extractor = new ChunkExtractor({
     statsFile: path.resolve(__dirname, 'public/build/loadable-stats.json'),
     entrypoints: ['client']
   });
 
-  const helmet = Helmet.renderStatic();
-  const ChunkWrappedApp = extractor.collectChunks(<App />);
+  const ChunkWrappedApp = extractor.collectChunks(
+    <StaticRouter>
+      <App />
+    </StaticRouter>
+  );
 
   res.send(`
     <!DOCTYPE html>

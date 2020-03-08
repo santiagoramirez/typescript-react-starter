@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const path = require('path');
+const { DefinePlugin } = require('webpack');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 
@@ -18,7 +19,12 @@ const webAppConfig = {
     path: path.join(SERVER_PATH, 'public/build'),
     publicPath: '/public/build/'
   },
-  plugins: [new LoadablePlugin()]
+  plugins: [
+    new DefinePlugin({
+      IS_SERVER: 'false'
+    }),
+    new LoadablePlugin()
+  ]
 };
 
 const webServerConfig = {
@@ -26,8 +32,8 @@ const webServerConfig = {
     server: path.join(SERVER_SRC_PATH, 'server.tsx')
   },
   output: {
-    filename: '[name].js',
-    path: path.join(SERVER_PATH, 'build')
+    filename: '[name].bundle.js',
+    path: path.join(SERVER_PATH)
   },
   module: {
     rules: [
@@ -37,7 +43,12 @@ const webServerConfig = {
       }
     ]
   },
-  plugins: [new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })],
+  plugins: [
+    new DefinePlugin({
+      IS_SERVER: 'true'
+    }),
+    new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })
+  ],
   node: {
     __dirname: false
   },

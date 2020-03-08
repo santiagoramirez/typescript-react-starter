@@ -4,10 +4,10 @@
   "author": "Santiago Ramirez <hey@santi.nyc>",
   "scripts": {
     "build": "npx webpack",
-    "prebuild:dev": "rm -rf build && rm -rf public/build",
+    "prebuild:dev": "rm -rf public/build",
     "build:dev": "npx webpack",
-    "start": "npx node build/server.js",
-    "start:dev": "npx nodemon build/server.js -e js,json,ts,tsx"
+    "start": "npx node server.bundle.js",
+    "start:dev": "npx nodemon server.bundle.js -e js,json,ts,tsx"
   },
   "dependencies": {
     "@loadable/server": "^5.12.0",

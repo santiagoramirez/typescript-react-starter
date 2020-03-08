@@ -1,3 +1,5 @@
+declare const IS_SERVER: boolean;
+
 declare module 'express-manifest-helpers' {
   import { RequestHandler } from 'express';
 

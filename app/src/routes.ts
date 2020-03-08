@@ -6,14 +6,11 @@ const Home = load(() => import('@app/pages/Home'));
 const routes = [
   {
     path: '/app',
-    exact: true,
-    component: Home,
-    routes: [
-      {
-        path: '/about',
-        component: About
-      }
-    ]
+    component: Home
+  },
+  {
+    path: '/app/about',
+    component: About
   }
 ];
 
