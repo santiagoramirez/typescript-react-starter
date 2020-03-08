@@ -13,6 +13,8 @@ import { matchPath } from 'react-router-dom';
 import appRoutes from '@app/routes';
 import pageRoutes from '@server/routes';
 
+import App from '@server/app';
+
 __dirname = path.join(__dirname, '../');
 
 const app: Express = express();
@@ -33,11 +35,11 @@ app.get('*', (req, res, next) => {
 
   const extractor = new ChunkExtractor({
     statsFile: path.resolve(__dirname, 'public/build/loadable-stats.json'),
-    entrypoints: ['app']
+    entrypoints: ['client']
   });
 
   const helmet = Helmet.renderStatic();
-  const ChunkWrappedApp = extractor.collectChunks(<div>test</div>);
+  const ChunkWrappedApp = extractor.collectChunks(<App />);
 
   res.send(`
     <!DOCTYPE html>
@@ -49,7 +51,7 @@ app.get('*', (req, res, next) => {
         ${extractor.getStyleTags()}
       </head>
       <body>
-        ${renderToString(ChunkWrappedApp)}
+        <div id="root">${renderToString(ChunkWrappedApp)}</div>
         ${extractor.getScriptTags()}
       </body>
     </html>

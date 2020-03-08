@@ -12,7 +12,7 @@ const SERVER_SRC_PATH = path.join(SERVER_PATH, 'src');
 
 const webAppConfig = {
   entry: {
-    app: path.join(SERVER_SRC_PATH, 'app.tsx')
+    client: path.join(SERVER_SRC_PATH, 'client.tsx')
   },
   output: {
     path: path.join(SERVER_PATH, 'public/build'),
@@ -37,10 +37,7 @@ const webServerConfig = {
       }
     ]
   },
-  plugins: [
-    new LoadablePlugin(),
-    new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })
-  ],
+  plugins: [new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })],
   node: {
     __dirname: false
   },
