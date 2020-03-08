@@ -1,6 +1,11 @@
+require('dotenv').config();
+
 const path = require('path');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
+
+const DotenvPlugin = require('dotenv-webpack');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 const SERVER_PATH = path.join(__dirname);
 const SERVER_SRC_PATH = path.join(SERVER_PATH, 'src');
@@ -10,8 +15,10 @@ const webAppConfig = {
     app: path.join(SERVER_SRC_PATH, 'app.tsx')
   },
   output: {
-    path: path.join(SERVER_PATH, 'public/build')
-  }
+    path: path.join(SERVER_PATH, 'public/build'),
+    publicPath: '/public/build/'
+  },
+  plugins: [new LoadablePlugin()]
 };
 
 const webServerConfig = {
@@ -30,6 +37,10 @@ const webServerConfig = {
       }
     ]
   },
+  plugins: [
+    new LoadablePlugin(),
+    new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })
+  ],
   node: {
     __dirname: false
   },
@@ -38,6 +49,6 @@ const webServerConfig = {
 };
 
 module.exports = [
-  merge([require('@monorepo/core/webpack.config.base.app'), webAppConfig]),
-  merge([require('@monorepo/core/webpack.config.base'), webServerConfig])
+  merge([require('monorepo/webpack.config.base.app'), webAppConfig]),
+  merge([require('monorepo/webpack.config.base'), webServerConfig])
 ];

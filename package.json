@@ -1,16 +1,18 @@
 {
-  "name": "@monorepo",
+  "name": "monorepo",
   "version": "0.0.0",
   "author": "Santiago Ramirez <hey@santi.nyc>",
   "scripts": {
-    "test": "npx jest",
-    "build": "npx webpack",
+    "server:build:dev": "cd server && npm run build:dev",
+    "server:start:dev": "cd server && npm run start:dev",
     "lint": "npx pretty-quick --staged"
   },
   "dependencies": {
-    "@monorepo": "./",
+    "@loadable/component": "^5.12.0",
+    "@types/loadable__component": "^5.10.0",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.15",
+    "monorepo": "./",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
@@ -22,6 +24,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@loadable/babel-plugin": "^5.12.0",
+    "@loadable/webpack-plugin": "^5.12.0",
     "@types/jest": "^24.0.22",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
@@ -29,6 +33,7 @@
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.3",
     "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
@@ -62,7 +67,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "npm run lint"
     }
   }
 }

@@ -1,12 +1,19 @@
-import { lazy } from 'React';
+import load from '@loadable/component';
 
-const Home = lazy(() => import('@app/pages/Home'));
+const About = load(() => import('@app/pages/About'));
+const Home = load(() => import('@app/pages/Home'));
 
 const routes = [
   {
-    path: '/',
+    path: '/app',
     exact: true,
-    component: Home
+    component: Home,
+    routes: [
+      {
+        path: '/about',
+        component: About
+      }
+    ]
   }
 ];
 

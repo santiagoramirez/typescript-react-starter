@@ -47,4 +47,4 @@ const config = {
   plugins: [new Manifest(), new CleanObsoleteChunks()]
 };
 
-module.exports = merge([require('@monorepo/core/webpack.config.base'), config]);
+module.exports = merge([require('monorepo/webpack.config.base'), config]);

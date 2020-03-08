@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const Dotenv = require('dotenv-webpack');
+const merge = require('webpack-merge');
 const MiniCssExtract = require('mini-css-extract-plugin');
 
 let envConfig = {};
@@ -26,15 +26,19 @@ const config = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [{ loader: 'ts-loader' }, { loader: 'tslint-loader' }]
+        use: [
+          { loader: 'babel-loader' },
+          { loader: 'ts-loader' },
+          { loader: 'tslint-loader' }
+        ]
       }
     ]
   },
-  plugins: [new Dotenv(), new MiniCssExtract()],
+  plugins: [new MiniCssExtract()],
   resolve: {
     alias: {
-      '@app': '@monorepo/app',
-      '@server': '@monorepo/server'
+      '@app': 'monorepo/app/src',
+      '@server': 'monorepo/server/src'
     },
     extensions: ['.js', '.ts', '.tsx', '.scss']
   }
