@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const path = require('path');
+
 const merge = require('webpack-merge');
 const MiniCssExtract = require('mini-css-extract-plugin');
 
@@ -37,8 +39,8 @@ const config = {
   plugins: [new MiniCssExtract()],
   resolve: {
     alias: {
-      '@app': 'monorepo/app/src',
-      '@server': 'monorepo/server/src'
+      '@app': path.join(__dirname, 'app/src'),
+      '@server': path.join(__dirname, 'server/src')
     },
     extensions: ['.js', '.ts', '.tsx', '.scss']
   }

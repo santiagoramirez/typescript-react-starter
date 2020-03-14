@@ -1,7 +1,15 @@
 {
-  "name": "monorepo",
-  "version": "0.0.0",
-  "author": "Santiago Ramirez <hey@santi.nyc>",
+  "name": "root",
+  "version": "0.0.1",
+  "authors": [
+    "Santiago Ramirez <hey@santi.nyc>"
+  ],
+  "private": true,
+  "workspaces": [
+    "app",
+    "desktop",
+    "server"
+  ],
   "scripts": {
     "server:build:dev": "cd server && npm run build:dev",
     "server:start:dev": "cd server && npm run start:dev",
@@ -9,10 +17,8 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@types/loadable__component": "^5.10.0",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.15",
-    "monorepo": "./",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
@@ -24,9 +30,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
     "@loadable/babel-plugin": "^5.12.0",
     "@loadable/webpack-plugin": "^5.12.0",
     "@types/jest": "^24.0.22",
+    "@types/loadable__component": "^5.10.0",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "@types/react-helmet": "^5.0.15",
@@ -39,6 +48,7 @@
     "dotenv-webpack": "^1.7.0",
     "husky": "^4.2.3",
     "jest": "^24.9.0",
+    "jest-config": "^25.1.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "postcss-assets": "^5.0.0",

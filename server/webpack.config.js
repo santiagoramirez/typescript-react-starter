@@ -57,6 +57,6 @@ const webServerConfig = {
 };
 
 module.exports = [
-  merge([require('monorepo/webpack.config.base.app'), webAppConfig]),
-  merge([require('monorepo/webpack.config.base'), webServerConfig])
+  merge([require('./../webpack.config.base.app'), webAppConfig]),
+  merge([require('./../webpack.config.base'), webServerConfig])
 ];

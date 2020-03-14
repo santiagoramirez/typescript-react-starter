@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 
 import store from '@app/store';
 
-import Footer from '@app/components/Footer';
-import Header from '@app/components/Header';
+import Footer from '@app/components/Footer/Footer';
+import Header from '@app/components/Header/Header';
 
 class App extends React.Component {
   public render() {

@@ -1,5 +1,10 @@
 {
-  "name": "monorepo-app",
+  "name": "app",
   "version": "0.0.1",
-  "author": "Santiago Ramirez <hey@santi.nyc>"
+  "authors": [
+    "Santiago Ramirez <hey@santi.nyc>"
+  ],
+  "scripts": {
+    "test": "jest"
+  }
 }
