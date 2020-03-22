@@ -1,0 +1,8 @@
+{
+  "name": "app-shared",
+  "description": "Reusable code which can be used by the desktop, mobile and web app.",
+  "version": "0.0.1",
+  "authors": [
+    "Santiago Ramirez <hey@santi.nyc>"
+  ]
+}

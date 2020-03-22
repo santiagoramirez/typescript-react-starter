@@ -6,8 +6,10 @@
   ],
   "private": true,
   "workspaces": [
-    "app",
-    "desktop",
+    "app/desktop",
+    "app/mobile",
+    "app/shared",
+    "app/web",
     "server"
   ],
   "scripts": {

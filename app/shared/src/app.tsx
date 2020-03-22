@@ -2,10 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import store from '@app/store';
+import store from '@app/shared/store';
 
-import Footer from '@app/components/Footer/Footer';
-import Header from '@app/components/Header/Header';
+import Footer from '@app/shared/components/Footer/Footer';
+import Header from '@app/shared/components/Header/Header';
 
 class App extends React.Component {
   public render() {

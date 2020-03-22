@@ -1,20 +1,19 @@
 import loadable from '@loadable/component';
 
 const About = loadable(
-  /* #__LOADABLE__ */ () => import('@server/views/pages/About')
+  /* #__LOADABLE__ */ () => import('@app/shared/pages/About')
 );
 const Home = loadable(
-  /* #__LOADABLE__ */ () => import('@server/views/pages/Home')
+  /* #__LOADABLE__ */ () => import('@app/shared/pages/Home')
 );
 
 const routes = [
   {
-    path: '/',
-    exact: true,
+    path: '/app',
     component: Home
   },
   {
-    path: '/about',
+    path: '/app/about',
     component: About
   }
 ];
