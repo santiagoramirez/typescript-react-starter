@@ -1,6 +1,12 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-  "rulesDirectory": ["app", "server"],
+  "rulesDirectory": [
+    "app-desktop",
+    "app-mobile",
+    "app-shared",
+    "app-web",
+    "server"
+  ],
   "rules": {
     "member-access": true,
     "no-any": true,

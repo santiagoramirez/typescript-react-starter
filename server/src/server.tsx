@@ -13,7 +13,7 @@ import { matchPath, StaticRouter } from 'react-router-dom';
 import appRoutes from '@app-shared/routes';
 import pageRoutes from '@server/routes';
 
-import App from 'app-web/src/app.web';
+import App from '@app-web/app.web';
 
 const app: Express = express();
 

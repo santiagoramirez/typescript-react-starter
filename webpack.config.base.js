@@ -39,10 +39,10 @@ const config = {
   plugins: [new MiniCssExtract()],
   resolve: {
     alias: {
-      '@app/desktop': path.join(__dirname, 'app/desktop/src'),
-      '@app/mobile': path.join(__dirname, 'app/mobile/src'),
-      '@app/shared': path.join(__dirname, 'app/shared/src'),
-      '@app/web': path.join(__dirname, 'app/web/src'),
+      '@app-desktop': path.join(__dirname, 'app-desktop/src'),
+      '@app-mobile': path.join(__dirname, 'app-mobile/src'),
+      '@app-shared': path.join(__dirname, 'app-shared/src'),
+      '@app-web': path.join(__dirname, 'app-web/src'),
       '@server': path.join(__dirname, 'server/src')
     },
     extensions: ['.js', '.ts', '.tsx', '.scss']
