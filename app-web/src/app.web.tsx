@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 
 import Navigation from '@app-shared/components/Navigation/Navigation';
 
-import appRoutes from '@app-shared/routes';
-import pageRoutes from '@server/routes';
+import { AppRoutes } from '@app-shared/routes';
+import { PageRoutes } from '@server/routes';
 
 class App extends Component {
   public render() {
-    const routes = [...appRoutes, ...pageRoutes];
-
-    const routeComponents = routes.map(({ path, component }) => (
-      <Route key={path} path={path} component={component} exact={true} />
-    ));
-
     return (
       <div>
         <Navigation />
-        {routeComponents}
+        <main className="main">
+          {AppRoutes}
+          {PageRoutes}
+        </main>
       </div>
     );
   }

@@ -8,7 +8,7 @@ function createWindow() {
     height: 750
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile('build/index.html');
 
   mainWindow.on('closed', () => {
     mainWindow = null;

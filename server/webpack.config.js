@@ -1,26 +1,28 @@
 require('dotenv').config();
 
 const path = require('path');
-const { DefinePlugin } = require('webpack');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 
 const DotenvPlugin = require('dotenv-webpack');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 
-const SERVER_PATH = path.join(__dirname);
+const SERVER_PATH = __dirname;
 const SERVER_SRC_PATH = path.join(SERVER_PATH, 'src');
+const SERVER_BUILD_PATH = path.join(SERVER_PATH, 'public/build');
+const SERVER_PUBLIC_PATH = '/public/build/';
 
 const webAppConfig = {
   entry: {
     client: path.join(SERVER_SRC_PATH, 'client.tsx')
   },
   output: {
-    path: path.join(SERVER_PATH, 'public/build'),
-    publicPath: '/public/build/'
+    path: SERVER_BUILD_PATH,
+    publicPath: SERVER_PUBLIC_PATH
   },
   plugins: [
-    new DefinePlugin({
+    new webpack.DefinePlugin({
       IS_SERVER: 'false'
     }),
     new LoadablePlugin()
@@ -33,7 +35,7 @@ const webServerConfig = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.join(SERVER_PATH)
+    path: SERVER_PATH
   },
   module: {
     rules: [
@@ -44,7 +46,7 @@ const webServerConfig = {
     ]
   },
   plugins: [
-    new DefinePlugin({
+    new webpack.DefinePlugin({
       IS_SERVER: 'true'
     }),
     new DotenvPlugin({ path: path.join(SERVER_PATH, '.env') })
