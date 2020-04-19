@@ -15,5 +15,7 @@ node_modules
 .env
 
 # App Specific
+app-desktop/build
+app-mobile/build
 server/server.bundle.js
 server/public/build
