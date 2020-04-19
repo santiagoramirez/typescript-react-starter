@@ -1,10 +1,11 @@
 import loadable from '@loadable/component';
 
 const About = loadable(
-  /* #__LOADABLE__ */ () => import('@app/shared/pages/About')
+  /* #__LOADABLE__ */ () => import('@app-shared/pages/About')
 );
+
 const Home = loadable(
-  /* #__LOADABLE__ */ () => import('@app/shared/pages/Home')
+  /* #__LOADABLE__ */ () => import('@app-shared/pages/Home')
 );
 
 const routes = [

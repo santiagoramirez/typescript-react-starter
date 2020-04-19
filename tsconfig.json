@@ -8,19 +8,25 @@
     "jsx": "react",
     "baseUrl": "./",
     "paths": {
-      "@app/desktop/*": ["app/desktop/src/*"],
-      "@app/mobile/*": ["app/mobile/src/*"],
-      "@app/shared/*": ["app/shared/src/*"],
-      "@app/web/*": ["app/web/src/*"],
+      "@app-desktop/*": ["app-desktoop/src/*"],
+      "@app-mobile/*": ["app-mobile/src/*"],
+      "@app-shared/*": ["app-shared/src/*"],
+      "@app-web/*": ["app-web/src/*"],
       "@server/*": ["server/src/*"]
     }
   },
   "typeRoots": [
-    "./app/desktop/src",
-    "./app/mobile/src",
-    "./app/shared/src",
-    "./app/web/src",
+    "./app-desktop/src",
+    "./app-mobile/src",
+    "./app-shared/src",
+    "./app-web/src",
     "./server/src"
   ],
-  "include": ["./app/**/src/**/*", "./server/src/**/*"]
+  "include": [
+    "./app-desktop/**/src/**/*",
+    "./app-mobile/**/src/**/*",
+    "./app-shared/**/src/**/*",
+    "./app-web/**/src/**/*",
+    "./server/src/**/*"
+  ]
 }

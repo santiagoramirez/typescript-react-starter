@@ -10,10 +10,10 @@ import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import { matchPath, StaticRouter } from 'react-router-dom';
 
-import appRoutes from '@app/shared/routes';
+import appRoutes from '@app-shared/routes';
 import pageRoutes from '@server/routes';
 
-import App from '@app/web/app.web';
+import App from 'app-web/src/app.web';
 
 const app: Express = express();
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
-import Navigation from '@app/shared/components/Navigation/Navigation';
-import appRoutes from '@app/shared/routes';
+import Navigation from 'app-shared/src/components/Navigation/Navigation';
+
+import appRoutes from 'app-shared/src/routes';
 import pageRoutes from '@server/routes';
 
 class App extends Component {

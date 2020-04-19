@@ -1,6 +1,6 @@
 import assign from 'lodash/assign';
 
-import { ActionTypes } from '@app/shared/store/actions/sample';
+import { ActionTypes } from '@app-shared/store/actions/sample';
 
 interface IState {
   text: string;
